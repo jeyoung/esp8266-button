@@ -14,6 +14,8 @@
 
 static os_timer_t os_timer;
 
+/* Represents a button
+ */
 static struct Button button = {0};
 
 /* This program debounces button presses.
