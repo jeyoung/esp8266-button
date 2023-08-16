@@ -5,11 +5,11 @@
 
 /* Forward declaration of function to read the state of a GPIO
  */
-typedef uint32_t (*Button_state_reader)(uint32_t);
+typedef unsigned int (*Button_state_reader)(unsigned int);
 
 /* Forward declaration of function to read the system time
  */
-typedef uint32_t (*Button_time_reader)();
+typedef unsigned int (*Button_time_reader)();
 
 /* Represents a button
  */
@@ -17,27 +17,27 @@ struct Button
 {
     /* The timestamp of the last button press
      */
-    volatile uint32_t timestamp;
+    volatile unsigned int timestamp;
 
     /* Indicates whether a button press is released
      */
-    volatile uint32_t up;
+    volatile unsigned int up;
 
     /* Indicates whether a long button press is detected
      */
-    volatile uint32_t longpress;
+    volatile unsigned int longpress;
 
     /* Indicates whether a button press is detected
      */
-    volatile uint32_t down;
+    volatile unsigned int down;
 
     /* The GPIO pin linked to this button
      */
-    volatile uint32_t pin;
+    volatile unsigned int pin;
 
     /* The number of bounces when the button is pressed
      */
-    volatile uint16_t bounces;
+    volatile unsigned int bounces;
 
     /* The function used for reading the state of the button
      */
@@ -50,7 +50,7 @@ struct Button
 
 /* Initialises a button
  */
-void Button_init(struct Button *button,uint32_t pin, Button_state_reader state_reader, Button_time_reader time_reader);
+void Button_init(struct Button *button, unsigned int pin, Button_state_reader state_reader, Button_time_reader time_reader);
 
 /* Reads the state of a button
  */
